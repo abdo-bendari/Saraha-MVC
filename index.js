@@ -23,11 +23,13 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store
+  store 
 }))
 app.use(cors())
+app.set("views",path.resolve() + "/views")
 app.set("view engine","ejs")
-app.use(express.static('public'))
+app.use(express.static(path.join(path.resolve(),"public")))
+// app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(authRouter)
 app.use(logInRouter)
