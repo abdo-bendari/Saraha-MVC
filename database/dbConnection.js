@@ -1,5 +1,7 @@
 import { connect } from "mongoose";
-const dbconn = connect('mongodb://localhost:27017/MVC-Saraha').then(()=>{
+import dotenv from "dotenv"
+dotenv.config()
+const dbconn = connect(process.env.DB).then(()=>{
     console.log("database connected successfully");
 }).catch(()=>{
     console.log("database connected failed");
